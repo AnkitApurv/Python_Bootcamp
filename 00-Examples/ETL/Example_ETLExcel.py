@@ -38,15 +38,15 @@ def transform(df_sh1_extract: pandas.DataFrame, df_sh2_extract: pandas.DataFrame
     logger.info('Transform: Begin')
 
     columns_to_keep_df_sh1 = ['ColA', 'Col2']
-    df_sh1_toload = df_sh1_extract[columns_to_keep_df_sh1].copy(deep = True)
+    df_sh1_toload = pandas.DataFrame(df_sh1_extract[columns_to_keep_df_sh1].copy(deep = True))
 
     columns_to_keep_df_sh2 = ['ColB', 'Col1', 'Col3']
-    df_sh2_toload = df_sh2_extract[columns_to_keep_df_sh2].copy(deep = True)
+    df_sh2_toload = pandas.DataFrame(df_sh2_extract[columns_to_keep_df_sh2].copy(deep = True))
 
     logger.info('Transform: Done')
     return df_sh1_toload, df_sh2_toload
 
-def load(df_sh1_toload: pandas.DataFrame, df_sh2_toload: pandas.DataFrame) -> typing.NoReturn:
+def load(df_sh1_toload: pandas.DataFrame, df_sh2_toload: pandas.DataFrame) -> None:
     """
     Load/Save
 
@@ -67,7 +67,7 @@ def load(df_sh1_toload: pandas.DataFrame, df_sh2_toload: pandas.DataFrame) -> ty
     logger.info('Load: Done')
     return
 
-def main() -> typing.NoReturn:
+def main() -> None:
     """
     ETL
 
